@@ -1,0 +1,21 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-weight: lighter;
+    color: rgb(39, 37, 37);
+}
+
+input{
+    width: 50% !important;
+  font-size: 1rem;
+}
+
+fieldset{
+    width: 100%;
+}
+
+textarea{
+    width: 100%;
+}
+

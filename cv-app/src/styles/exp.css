@@ -1,0 +1,51 @@
+@import url('root.css');
+
+.experience-section{
+    display: grid;
+    grid-template-columns: 50% 1fr;
+    margin-top: 3em;
+}
+
+h2{
+   
+    line-height: 0.6;
+}
+
+.exp-container{
+    justify-content: start;
+    align-items: start;
+    place-items: start;
+    
+}
+
+.exp{
+    padding-bottom: 2em;
+
+}
+
+.date{
+   place-items: start;
+   position: relative;
+   top: 1rem;
+   display: flex;
+   gap: 6px;
+   font-style: italic;
+ 
+}
+
+.workCompany{
+    font-size: 1.2rem;
+    position: relative;
+    top: 1rem;
+}
+
+li, .workCompany, .date{
+    text-transform: capitalize;
+}
+
+ul li{
+    margin-bottom: 0.9em;
+    position: relative;
+    top: 1.5rem;
+}
+

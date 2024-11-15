@@ -1,13 +1,12 @@
-import { useState } from "react"
-import '../styles/gen.css'
 
-const General = ({email, phone, address, EmailChange, PhoneChange, AddressChange}) =>{
-  
+const General = ({email, phone, address, EmailChange, PhoneChange, title, TitleChange, name, NameChange, AddressChange}) =>{
     return (
         <>
-        <div className="container">
-        <div className="genTop">
-            <input
+        <div className="general">
+            <fieldset>
+                <legend>General Information</legend>
+               
+                <input
             type="text"
             placeholder="Email"
             value={email}
@@ -21,48 +20,37 @@ const General = ({email, phone, address, EmailChange, PhoneChange, AddressChange
             />
              <input
             type="text"
-            placeholder="Name"
+            placeholder="Address"
             value={address}
             onChange={AddressChange}
             />
-        </div>
-        </div>
+                
+
+                
+                <input
+            type="text"
+            placeholder="Name"
+            value={name}
+            onChange={NameChange}
+            />
+             <input
+            type="text"
+            placeholder="Professional Title"
+            value={title}
+            onChange={TitleChange}
+            />
+                
+                
+               
+            
+            </fieldset>
+           
+            </div>
+          
         </>
     )
 }
 
-function Gen(){
-    const [email, setEmail] = useState('');
-    const [phone, setPhone] = useState('');
-    const [address, setAddress] = useState('');
 
-    function Email(e){
-        setEmail(e.target.value);
-    }
 
-    function Phone(e){
-        setPhone(e.target.value);
-    }
-
-    function Address(e){
-        setAddress(e.target.value);
-    }
-
-    return (
-        <>
-        <General
-        email = {email}
-        phone = {phone}
-        address={address}
-        EmailChange={Email}
-        PhoneChange={Phone}
-        AddressChange={Address}
-        />
-        <p>{email}</p>
-        <p>{phone}</p>
-        <p>{address}</p>
-        </>
-    )
-}
-
-export default Gen;
+export default General;

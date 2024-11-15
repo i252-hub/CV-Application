@@ -1,11 +1,11 @@
 
-import Gen from "./components/general-info"
+import Dialog from "./components/modal"
 
 function App() {
 
   return (
     <>
-    <Gen/>
+    <Dialog/>
     </>
 
       
