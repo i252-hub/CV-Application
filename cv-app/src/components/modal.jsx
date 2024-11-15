@@ -23,9 +23,16 @@ const Dialog = () => {
     ]);
 
     const [open, setOpen] = useState(true);
+    const [isEditMode, setIsEditMode] = useState(false);
+
+    const openModalForEdit = () => {
+        setOpen(true);
+        setIsEditMode(true); 
+    };
 
     const closeModal = () => {
         setOpen(false);
+        setIsEditMode(false);
     };
 
 
@@ -80,7 +87,7 @@ const Dialog = () => {
                 </dialog>
             )}
 
-            {!open && (
+            {!open && !isEditMode &&(
                 <>
 
                     <div className="con">
@@ -129,7 +136,9 @@ const Dialog = () => {
                     </div>
 </div>
 
-                    
+                        <div className="btn">
+                        <button onClick={openModalForEdit}>Edit</button>
+                    </div>
                 </>
             )}
         </div>

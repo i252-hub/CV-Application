@@ -19,3 +19,11 @@ textarea{
     width: 100%;
 }
 
+.bttn{
+    width: 8rem;
+}
+
+.btN{
+    display: flex;
+    justify-content: end;
+}

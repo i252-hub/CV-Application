@@ -1,9 +1,12 @@
 
 const AddButton = ({ onAdd }) => {
     return (
-        <button type="button" onClick={onAdd}>
+        <div className="btN">
+        <button type="button" className= 'bttn' onClick={onAdd}>
             Add Experience
         </button>
+        </div>
+       
     );
 };
 
