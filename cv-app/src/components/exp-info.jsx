@@ -1,5 +1,7 @@
-import AddButton from "./adding"
+import AddButton from "./adding";
+
 const Experience = ({ experiences, setExperiences, handleAddExperience }) => {
+
 
     const handleExperienceChange = (index, field, value) => {
         const updatedExperiences = [...experiences];
@@ -7,9 +9,10 @@ const Experience = ({ experiences, setExperiences, handleAddExperience }) => {
         setExperiences(updatedExperiences);
     };
 
+
     const handleDescriptionChange = (index, value) => {
         const updatedExperiences = [...experiences];
-        updatedExperiences[index].descriptions = value.split(',').map(item => item.trim());
+        updatedExperiences[index].descriptions = value.split(',').map(item => item.trim())
         setExperiences(updatedExperiences);
     };
 
@@ -43,16 +46,16 @@ const Experience = ({ experiences, setExperiences, handleAddExperience }) => {
                             value={exp.end}
                             onChange={(e) => handleExperienceChange(index, 'end', e.target.value)}
                         />
+
                         <textarea
                             placeholder="Job Description (use commas to separate items)"
-                            value={exp.descriptions.join(', ')}
-                            onChange={(e) => handleDescriptionChange(index, e.target.value)}
+                            value={Array.isArray(exp.descriptions) ? exp.descriptions.join(', ') : ''} 
+                            onChange={(e) => handleDescriptionChange(index, e.target.value)} 
                         />
                     </div>
                 ))}
 
-
-                 <AddButton onAdd={handleAddExperience} />
+                <AddButton onAdd={handleAddExperience} />
             </fieldset>
         </div>
     );

@@ -136,7 +136,7 @@ const Dialog = () => {
                     </div>
 </div>
 
-                        <div className="btn">
+                <div className="btn">
                         <button onClick={openModalForEdit}>Edit</button>
                     </div>
                 </>
