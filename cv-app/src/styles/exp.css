@@ -1,9 +1,17 @@
 @import url('root.css');
 
+legend{
+    position: relative;
+    right:2em;
+}
 .experience-section{
     display: grid;
     grid-template-columns: 50% 1fr;
     margin-top: 3em;
+}
+
+.expbtn{
+    margin-left: 5em;
 }
 
 h2{
@@ -11,6 +19,36 @@ h2{
     line-height: 0.6;
 }
 
+.expfirstpair, .expsecondpair{
+    display: flex;
+    justify-content: space-around;
+    padding-top: 1rem;
+    gap:1rem;
+}
+
+.firstexp, .thirdexp{
+    position: relative;
+    right:2em;
+   
+}
+
+.fifthexp{
+    width:118%;
+    position: relative;
+    right:2em;
+    padding-top: 1rem;
+}
+
+textarea{
+    border:none;
+    border-bottom: 1px solid rgb(36, 33, 33);
+    resize: none;
+    height:5em;
+}
+
+textarea::placeholder{
+    font-family: 'Times New Roman', Times, serif;
+}
 .exp-container{
     justify-content: start;
     align-items: start;

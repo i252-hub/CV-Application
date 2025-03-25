@@ -1,5 +1,10 @@
 @import url('root.css');
 
+legend{
+    position: relative;
+    right:2em;
+}
+
 .education-section{
     display: grid;
     grid-template-columns: 50% 1fr; 
@@ -8,8 +13,17 @@
     border-bottom: solid 1px rgba(128, 128, 128, 0.448);
 }
 
+.EduFirstPair, .EduSecondPair{
+    display: flex;
+    gap:1rem;
+    padding-top: 1rem;
+    justify-content: space-around;
+}
 
-
+.edufirst, .eduthird{
+    position:relative;
+    right:2em;
+}
 h2{
     font-size: 2em;
     place-self: center;

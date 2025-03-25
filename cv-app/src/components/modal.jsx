@@ -2,9 +2,13 @@ import { useState } from "react";
 import '../styles/gen.css';
 import '../styles/edu.css';
 import '../styles/exp.css';
+import '../styles/pro.css'
 import General from './general-info';
 import Education from './education-info';
 import Experience from './exp-info';
+import Project from './project-info';
+import Additional from "./additional";
+import gradient from "../assets/gradientelementform.png"
 
 const Dialog = () => {
 
@@ -13,13 +17,22 @@ const Dialog = () => {
     const [address, setAddress] = useState('');
     const [name, setName] = useState('');
     const [title, setTitle] = useState('');
-    const [school, setSchool] = useState('');
-    const [degree, setDegree] = useState('');
-    const [year, setYear] = useState('');
+    const [website, setWebsite] = useState('');
+  
+    const [skill, setSkill] = useState('');
+    const [lang, setLang] = useState('');
+    const [cert, setCert] = useState('');
+
     
 
     const [experiences, setExperiences] = useState([
         { job: '', company: '', start: '', end: '', descriptions: [] }
+    ]);
+    const [education, setEducation] = useState([
+        { school: '', degree: '', yearstart: '', yearend: ''}
+    ]);
+    const [project, setProject] = useState([
+        { title: '', desc: ''}
     ]);
 
     const [open, setOpen] = useState(true);
@@ -42,10 +55,25 @@ const Dialog = () => {
             { job: '', company: '', start: '', end: '', descriptions: [] }
         ]);
     };
+    const handleAddEducation = () => {
+        if (education.length <= 1) {
+            setEducation([...education, { school: '', degree: '', yearstart: '', yearend: '' }]);
+          }
+    };
+    const handleAddProject = () => {
+        if (project.length <= 2) {
+            setProject([...project, { title: '', desc: '' }]);
+          }
+    };
 
     return (
+        
         <div className="container">
             {open && (
+                <>
+                <img className="gradient" src = {gradient}/>
+                <img className="gradienttwo" src = {gradient}/>
+                <img className="gradientthree" src = {gradient}/>
                 <dialog open={open}>
                     <div className="genTop">
 
@@ -53,23 +81,24 @@ const Dialog = () => {
                             email={email}
                             phone={phone}
                             address={address}
+                            name={name}
+                            title={title}
+                            website={website}
                             EmailChange={(e) => setEmail(e.target.value)}
                             PhoneChange={(e) => setPhone(e.target.value)}
+                            WebsiteChange={(e) => setWebsite(e.target.value)}
                             AddressChange={(e) => setAddress(e.target.value)}
-                            NameChange={(e) => setName(e.target.value.toUpperCase())}
-                            TitleChange={(e) => setTitle(e.target.value.toUpperCase())}
+                            NameChange={(e) => setName(e.target.value)}
+                            TitleChange={(e) => setTitle(e.target.value)}
                             isOpen={open}
                             onClose={closeModal}
                         />
 
 
                         <Education
-                            school={school}
-                            degree={degree}
-                            year={year}
-                            SchoolChange={(e) => setSchool(e.target.value)}
-                            DegreeChange={(e) => setDegree(e.target.value)}
-                            YearChange={(e) => setYear(e.target.value)}
+                           education={education}
+                           setEducation={setEducation}
+                           handleAddEducation={handleAddEducation}
                         />
 
 
@@ -79,12 +108,26 @@ const Dialog = () => {
                             handleAddExperience={handleAddExperience}
                         />
 
+                        <Project
+                        project={project}
+                        setProject={setProject}
+                        handleAddProject={handleAddProject}
+                        />
 
+                        <Additional
+                        skill={skill} 
+                        lang = {lang}
+                        cert = {cert}
+                        SkillChange = {(e) => setSkill(e.target.value)}
+                        LanguageChange = {(e) => setLang(e.target.value)}
+                        CertChange = {(e) => setCert(e.target.value)}
+                        />
                         <div className="btn">
                             <button onClick={closeModal}>Close</button>
                         </div>
                     </div>
                 </dialog>
+                </>
             )}
 
             {!open && !isEditMode &&(
@@ -92,52 +135,66 @@ const Dialog = () => {
 
                     <div className="con">
                         <div className="genTop2">
-                            <p>{email}</p>
-                            <p>{phone}</p>
-                            <p>{address}</p>
-                        </div>
-                        <h1>{name}</h1>
-                        <p className="title">{title}</p>
-                    </div>
-
-                    <div className="education-section">
-                        <h2>EDUCATION</h2>
-                        <div className="edu-details">
-                            <p className="year">{year}</p>
-                            <p className="school">{school}</p>
-                            <p className="degree">{degree}</p>
+                           <fieldset className="namesection">
+                            <p>{name.toUpperCase()}</p>
+                            <p>{title.toUpperCase()}</p>
+                           </fieldset>
+                           <div className="topdetailssection">
+                            <p>{address} | </p>
+                            <p>{phone} | </p>
+                            <p>{website}</p>
+                           </div>
                         </div>
                     </div>
 
-                    <div className="experience-section">
-    <h2>WORK <br /> <br /> EXPERIENCE</h2>
-    
-                    <div className="exp-container">
-                        {experiences.map((exp, index) => (
-                            <div key={index} className="experience-item">
-                                 
-                                <div className="exp">
-                                    <p className="workCompany">{exp.job} / {exp.company}</p>
-                                    <div className="date">
-                                    <p className="start">{exp.start}</p>
-                                    <p>-</p>
-                                    <p className="end">{exp.end}</p>
-                                </div>
-                                    <ul style={{ listStyleType: 'disc', marginLeft: '20px' }}>
-                                        {exp.descriptions.map((description, idx) => (
-                                            <li key={idx}>{description}</li>
-                                        ))}
-                                    </ul>
-                                </div>
-                               
-                            </div>
-                        ))}
-                       
+                <div className="containermain">
+                <div className="containerbot">
+                    <div className="educationtitle">
+                        <p className="educationtext">EDUCATION</p>
                     </div>
-</div>
+                    
+                    {education.map((edu, index) => (
+                    <div className="edus" key={index}>
+                        <div className="schoolname">
+                            <p>{edu.school}</p>
+                        </div>
+                        <div className="degyear">
+                            <p>{edu.degree}</p>
+                            <p>{edu.yearstart} – {edu.yearend}</p>
+                        </div>
+                    </div>
+                ))}
+
+                    <div className="exptitle">
+                        <p className="exptext">EXPERIENCE</p>
+                    </div>
+                   <div className="expcompany">
+                    <p>{experiences[0].company}</p>
+                   </div>
+                   <div className="jobyear">
+                    <p>{experiences[0].job}</p>
+                    <p>{experiences[0].start} – {experiences[0].end}</p>
+                   </div>
+                   <div className="jobdesc">
+                   <ul>
+                        {experiences.descriptions
+                            .split(',')
+                            .map((desc, idx) => (
+                                <li key={idx}>{desc.trim()}</li>  
+                            ))}
+                    </ul>
+
+                   </div>
+
+                </div>
+                </div>
+
+           
+                
+          
 
                 <div className="btn">
-                        <button onClick={openModalForEdit}>Edit</button>
+                        <button className="edit" onClick={openModalForEdit}>Edit</button>
                     </div>
                 </>
             )}

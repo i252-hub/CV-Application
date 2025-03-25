@@ -1,0 +1,12 @@
+.mainpair{
+    position:relative;
+    right:2em;
+}
+
+.projfirst, .projsecond{
+    padding-top: 1rem;
+}
+
+.projsecond{
+    width:120%;
+}

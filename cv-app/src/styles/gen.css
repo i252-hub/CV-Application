@@ -4,17 +4,116 @@ body{
     overflow-x: hidden;
 }
 
+.namesection{
+   border: 3px solid rgb(244, 244, 240);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 2rem;
+    width:50%;
+}
+
+.containerbot{
+    width:85%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.containermain{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    padding-top: 2em;
+}
+.edus{
+    width: 100%;
+}
+.topdetailssection{
+    display: flex;
+    gap:3px;
+    padding-top: 2rem;
+}
+
+.educationtitle, .exptitle{
+    width:100%;
+    border: none;
+    border-bottom: 2px solid rgb(244, 228, 201);;
+}
+.schoolname, .expcompany{
+    width:100%;
+    padding-top: 1rem;
+}
+
+.exptitle{
+    padding-top: 2rem;
+}
+.schoolname >p, .expcompany > p{
+    font-size: 1.2rem;
+}
+.degyear, .jobyear{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.educationtitle > p, .exptitle > p{
+    font-size: 1.2em;
+    font-style: bold;
+    font-weight: 500;
+}
+
+.namesection > p:first-child {
+    font-size: 2.5em;
+    font-style: bold;
+   
+}
+.namesection > p:nth-child(2){
+    font-size: 1.3em;
+    font-style: bold;
+   background: white;
+   color:rgb(244, 228, 201);
+ padding: 10px 2rem 10px 2rem;
+   position: relative;
+   top: 1rem;
+   display: flex;
+   
+}
+
+.gradient{
+    position: absolute;
+    left:15em;
+    width:20vw;
+}
+.gradienttwo{
+    position: absolute;
+    left:45em;
+    top: 30em;
+    width:35vw;
+}
+.gradientthree{
+    position: absolute;
+    left:5em;
+    top: 50em;
+    width:30vw;
+    transform: rotate(-20deg); 
+  transition: transform 0.5s ease-in-out;
+}
 .genTop2{
     display: flex;
-    justify-content: space-around;
-    gap: 12px;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    top:3rem;
 }
 
 .con{
     width: 100%;
-    background: rgba(231, 228, 228, 0.457);
+    background: rgb(244, 228, 201);
     padding-bottom: 5rem;
 }
+
 
 dialog{
     background: white; 
@@ -23,12 +122,24 @@ dialog{
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
     border-radius: 16px;
     position: relative;
-    left: 5rem;
+    left: 25%;
     top: 3rem;
     display: flex;
     justify-content: center;
+   width:50%;
    
-   
+}
+.skills{
+    position: relative;
+    right:2em;
+}
+.skillone, .skilltwo, .skillthree{
+    padding-top: 1rem;
+}
+legend{
+    color: rgb(215, 184, 135);
+    position: relative;
+    right:2em;
 }
 
 .genTop{
@@ -37,10 +148,35 @@ dialog{
     gap: 1rem;
 }
 
+input{
+    border: none;
+    border-bottom: 1px solid rgb(45, 41, 41);
+    outline: none;
+    padding-top: 3px;
+    font-family: "Times New Roman", Times, serif;
+    color:rgb(75, 71, 71);
+    
+}
+
+input:focus{
+    font-family: "Times New Roman", Times, serif;
+}
+
+fieldset{
+    border: none;
+   
+}
+
 .container{
     width: 100vw;
-    height: 100vh;
+    height: 210vh;
     
+    
+}
+
+.edit{
+    position: relative;
+    right:3em;
 }
 
 h1{
@@ -67,6 +203,22 @@ button{
 .btn{
     display: flex;
     justify-content: end;
+}
+.firstpair, .secondpair, .thirdpair{
+    display: flex;
+    justify-content: space-around;
+   gap:1rem;
+   padding-top: 1rem;
+   
+}
+
+.generalfourth, .generalfirst, .generalthird{
+    position: relative;
+    right:2em;
+}
+
+.generalfirst, .generalsecond, .generalthird, .generalfourth, .generalfifth{
+    position: relative;
 }
 
 

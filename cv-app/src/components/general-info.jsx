@@ -1,47 +1,65 @@
 
-const General = ({email, phone, address, EmailChange, PhoneChange, title, TitleChange, name, NameChange, AddressChange}) =>{
+const General = ({email, phone, address, EmailChange, PhoneChange, title, TitleChange, name, NameChange, AddressChange, website, WebsiteChange}) =>{
     return (
         <>
         <div className="general">
             <fieldset>
                 <legend>General Information</legend>
-               
-                <input
-            type="text"
-            placeholder="Email"
-            value={email}
-            onChange={EmailChange}
-            />
-             <input
-            type="text"
-            placeholder="Phone"
-            value={phone}
-            onChange={PhoneChange}
-            />
-             <input
-            type="text"
-            placeholder="Address"
-            value={address}
-            onChange={AddressChange}
-            />
-                
 
-                
+                <div className="firstpair">
+                <div className="generalfourth">
+             <p>Name</p>
                 <input
             type="text"
-            placeholder="Name"
             value={name}
             onChange={NameChange}
             />
+             </div>
+             <div className="generalfifth">
+             <p>Professional Title</p>
              <input
             type="text"
-            placeholder="Professional Title"
             value={title}
             onChange={TitleChange}
             />
-                
-                
-               
+            </div>
+            </div>
+            <div className="secondpair">
+               <div className="generalfirst">
+                <p>Email</p>
+                <input
+            type="text"
+            value={email}
+            onChange={EmailChange}
+            />
+            </div>
+            <div className="generalsecond">
+            <p>Phone Number</p>
+             <input
+            type="text"
+            value={phone}
+            onChange={PhoneChange}
+            />
+            </div>
+            </div>
+            <div className="thirdpair">
+            <div className="generalthird">
+            <p>Address</p>
+             <input
+            type="text"
+            value={address}
+            onChange={AddressChange}
+            />
+             </div>
+             <div className="generalsixth">
+            <p>Website</p>
+             <input
+            type="text"
+            value={website}
+            onChange={WebsiteChange}
+            />
+             </div>
+             </div>
             
             </fieldset>
            
