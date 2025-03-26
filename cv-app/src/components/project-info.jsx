@@ -3,14 +3,16 @@ import AddButtonPro from "./addingthree";
 const Projects = ({project = [], setProject, handleAddProject}) => {
 
     const handleProChange = (index, field, value) => {
-        const updatedProject = [...project];
-        updatedProject[index][field] = value;
+        const updatedProject = project.map((pro, i) => 
+            i === index ? { ...pro, [field]: value } : pro
+        );
         setProject(updatedProject);
     };
-
+    
     const handleDescriptionChangePro = (index, value) => {
-        const updatedProject = [...project];
-        updatedProject[index].descriptions = value.split(',').map(item => item.trim())
+        const updatedProject = project.map((pro, i) => 
+            i === index ? { ...pro, desc: value } : pro
+        );
         setProject(updatedProject);
     };
     return(
@@ -31,7 +33,7 @@ const Projects = ({project = [], setProject, handleAddProject}) => {
                         <p>Description</p>
                         <textarea type="text"
                         placeholder="use commas to separate items"
-                         value={Array.isArray(pro.desc) ? pro.descriptions.join(', ') : ''} 
+                         value={pro.desc} 
                          onChange={(e) => handleDescriptionChangePro(index, e.target.value)}/>
                     </div>
                  </div>
