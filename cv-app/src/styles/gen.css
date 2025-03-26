@@ -4,17 +4,59 @@ body{
     overflow-x: hidden;
 }
 
+
+@media print {
+    .container{
+        padding-top: 0;
+        height:100vh;
+    };
+    body * {
+        visibility: hidden;
+        margin: 0;
+        padding: 0; 
+    }
+    @page {
+        margin: 0; 
+        size: A4;
+    }
+    #resume, #resume * { 
+        visibility: visible;
+    }
+    #resume{ 
+        position: absolute;
+        left: 0;
+        top: 0 !important;
+        width: 297mm; 
+        height: 420mm; 
+        margin: 0;
+        background: white;
+        box-shadow: none;
+    }                 
+                                                                                                            button{display:none;} 
+  
+}
+
+textarea{
+    border:none;
+    outline: none;
+    font-family: 'Times New Roman', Times, serif;
+}
+textarea:focus{
+    border:none;
+    outline: none;
+    font-family: 'Times New Roman', Times, serif;
+}
 .namesection{
-   border: 3px solid rgb(244, 244, 240);
+   border: 3px solid rgb(244, 228, 201);
     display: flex;
     flex-direction: column;
     align-items: center;
     padding-top: 2rem;
-    width:50%;
+    width:100%;
 }
 
 .containerbot{
-    width:85%;
+    width:95%;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -23,8 +65,8 @@ body{
 .containermain{
     display: flex;
     justify-content: center;
-    width: 100%;
-    padding-top: 2em;
+    width: 95%;
+   margin-top: 1rem;
 }
 .edus{
     width: 100%;
@@ -35,10 +77,21 @@ body{
     padding-top: 2rem;
 }
 
-.educationtitle, .exptitle{
+ .exptitle, .projectstitle, .additionaltitle{
     width:100%;
     border: none;
-    border-bottom: 2px solid rgb(244, 228, 201);;
+    border-bottom: 2px solid rgb(244, 228, 201);
+    padding-top: 2rem;
+}
+.educationtitle{
+    width:100%;
+    border: none;
+    border-bottom: 2px solid rgb(244, 228, 201);
+}
+
+.pros{
+    width:100%;
+    padding-top: 1rem;
 }
 .schoolname, .expcompany{
     width:100%;
@@ -48,9 +101,34 @@ body{
 .exptitle{
     padding-top: 2rem;
 }
+
+.jobdesc{
+    width:100%;
+    position: relative;
+    bottom: 1.2rem;
+}
+.jobdesc > ul{
+    margin-left: 1em;
+}
+.prodesc > ul{
+    position: relative;
+    bottom: 1.2rem;
+    margin-left: 1em;
+}
+.exps{
+    width:100%;
+}
 .schoolname >p, .expcompany > p{
     font-size: 1.2rem;
+    font-weight:bold;
+    color:rgb(83, 81, 81);
 }
+.projname > p{
+    font-weight:bold;
+    color:rgb(83, 81, 81);
+}
+
+
 .degyear, .jobyear{
     display: flex;
     justify-content: space-between;
@@ -58,10 +136,26 @@ body{
     width: 100%;
 }
 
-.educationtitle > p, .exptitle > p{
+.jobyear > p:first-child{
+    color: rgb(83, 81, 81);
+    font-weight: bold;
+}
+
+.educationtitle > p, .exptitle > p, .projectstitle > p, .additionaltitle > p{
     font-size: 1.2em;
-    font-style: bold;
-    font-weight: 500;
+    font-weight:bold;
+    color:rgb(83, 81, 81);
+    
+}
+
+span{
+    font-weight:bold;
+    color:rgb(83, 81, 81);
+}
+
+.addskills{
+   padding-top: 1rem;
+    width: 100%;
 }
 
 .namesection > p:first-child {
@@ -79,6 +173,16 @@ body{
    top: 1rem;
    display: flex;
    
+}
+
+.close{
+width:8em;
+position: relative;
+left:7rem;
+background: rgb(215, 184, 135);
+color:white;
+border:none;
+border-radius:4rem;
 }
 
 .gradient{
@@ -100,18 +204,30 @@ body{
     transform: rotate(-20deg); 
   transition: transform 0.5s ease-in-out;
 }
+.build{
+    position: relative;
+    right:21em;
+    top: 15em;
+}
+.build>p{
+    font-size: 3em;
+}
+.ress{
+    background: linear-gradient(90deg, #faecad, #ff758c);
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
 .genTop2{
     display: flex;
     flex-direction: column;
     align-items: center;
     position: relative;
-    top:3rem;
+    height: 100%;
+    width: 100%;
 }
 
 .con{
-    width: 100%;
-    background: rgb(244, 228, 201);
-    padding-bottom: 5rem;
+    width: 90%;
 }
 
 
@@ -167,17 +283,203 @@ fieldset{
    
 }
 
-.container{
-    width: 100vw;
-    height: 210vh;
-    
-    
+.bttn{
+    position: relative;
+    left:5em;
 }
 
-.edit{
-    position: relative;
-    right:3em;
+.container{
+    width: 100vw;
+    height: 180vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
+
+
+@media screen and (min-width: 642px) and (max-width: 1024px) {
+    .container{
+        height: 120vh;
+    }
+
+  
+    .gradienttwo{
+        top:-1em;
+        left:25em;
+    }
+
+    dialog{
+        width:100%;
+        left: 1%;
+        position: relative;
+        top:5em;
+    }
+    fieldset{
+        min-width:120%;
+        position: relative;
+        right:3em;
+    }
+    .generalfourth,.generalfirst,.generalthird,.eduthird,.edufirst,.firstexp,.thirdexp{
+        left:-3em;
+    }
+    .namesection{
+       position: relative;
+       left:1rem;
+    }
+    .build{
+        position: relative;
+        left:1em;
+        top: 5em;
+    }
+    button{
+        position: relative;
+        left:5em;
+    }
+   .generalfourth > input, .generalfirst > input, .generalthird > input,
+   .generalsecond > input, .generalfifth > input, .generalsixth >input,
+   .edufirst > input, .edusecond > input, .eduthird > input, .edufourth >input,
+   .firstexp >input, .secondexp>input, .thirdexp>input, .fourthexp>input{
+    width:135%;
+   }
+
+   .close{
+    left:9.5rem;
+   }
+  .projfirst > input, .skillone > input, .skilltwo > input, .skillthree > input{
+    width:115.5%;
+   }
+     .fifthexp > textarea{
+    width: 98.5%;
+   }
+   .projsecond >textarea{
+    width: 96.5%;
+   }
+    
+}
+@media screen and (max-width: 641px) {
+
+    .educationtitle, .exptitle, .projectstitle, .additionaltitle{
+        width:300%;
+        position: relative;
+        left:21.5em;
+    }
+    dialog{
+        width:250%;
+        right:0;
+        left:30em;
+        position: relative;
+        top:15em;
+       
+    }
+
+    legend{
+        left:22em;
+    }
+    .firstpair, .secondpair, .thirdpair, .EduFirstPair, .EduSecondPair, .expfirstpair, .expsecondpair{
+        width:50%;
+        position: relative;
+        left:23em;
+    }
+    .projfirst{
+        width:48%;
+        position: relative;
+        left:24em;
+    }
+    .projsecond{
+        max-width:57.5%;
+        position: relative;
+        left:24em;
+    }
+    .skillone, .skilltwo, .skillthree{
+        max-width:48%;
+        position: relative;
+        left:24em;
+    }
+    .fifthexp{
+        max-width:56.5%;
+        position: relative;
+        left:22em;
+    }
+    .jobyear, .degyear{
+        width:310%;
+    }
+    .jobyear > p:last-child, .degyear>p:last-child{
+        position: relative;
+        right:2em;
+    }
+    .con{
+        position: relative;
+        left:28em;
+        width:190%;
+    }
+    .topdetailssection{
+        position: relative;
+        right:5em;
+    }
+    .btn{
+        position: relative;
+        max-width:50%;
+        left:10em;
+    }
+    .btN{
+        position: relative;
+        max-width:71%;
+        left:10em;
+    }
+    .build{
+        right:0;
+        width:150%;
+        left:35em;
+       
+    }
+    .build > p{
+        font-size: 5em;
+        right:-8em;
+    }
+    fieldset{
+        min-width:10%;
+        position: relative;
+        right:5em;
+    }
+    .generalfourth,.generalfirst,.generalthird,.eduthird,.edufirst,.firstexp,.thirdexp{
+        left:-5em;
+    }
+
+    .generalfourth > input, .generalfirst >input, .generalsecond>input,.generalthird>input,
+    .generalfifth>input,.generalsixth>input, .edufirst>input, .edusecond>input, .eduthird>input, .edufourth>input,
+    .firstexp >input, .secondexp>input, .thirdexp>input, .fourthexp>input{
+        width: 171.5%;
+
+    }
+    .fifthexp>textarea{
+        width:101.5%;
+    }
+    .gradient{
+        top: 10em;
+        width:80vw;
+    }
+    button{
+        position: relative;
+        right: -6em;
+    }
+ 
+   .edit, .close{
+    width:10em;
+   }
+   .btnprint, .edit{
+    width:10em;
+    position: relative;
+    left:50em;
+   }
+    .close{
+        position: relative;
+        left: 21em;
+    }
+
+}
+
+
 
 h1{
     margin-top: 1em;
@@ -197,13 +499,16 @@ h1{
 button{
     width: 10%;
     padding: 5px 12px 5px 12px;
-
+    margin-right: 5em;
 }
 
 .btn{
+    width: 100%;
     display: flex;
     justify-content: end;
+   
 }
+
 .firstpair, .secondpair, .thirdpair{
     display: flex;
     justify-content: space-around;
