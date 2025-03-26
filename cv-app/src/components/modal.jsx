@@ -68,12 +68,13 @@ const Dialog = () => {
 
     return (
         
-        <div className="container">
+        <div id = "resume" className="container">
             {open && (
                 <>
                 <img className="gradient" src = {gradient}/>
                 <img className="gradienttwo" src = {gradient}/>
                 <img className="gradientthree" src = {gradient}/>
+                <div className="build"><p>Build your <span className="ress"> Resume</span></p></div>
                 <dialog open={open}>
                     <div className="genTop">
 
@@ -123,7 +124,7 @@ const Dialog = () => {
                         CertChange = {(e) => setCert(e.target.value)}
                         />
                         <div className="btn">
-                            <button onClick={closeModal}>Close</button>
+                            <button className="close"onClick={closeModal}>View</button>
                         </div>
                     </div>
                 </dialog>
@@ -168,23 +169,55 @@ const Dialog = () => {
                     <div className="exptitle">
                         <p className="exptext">EXPERIENCE</p>
                     </div>
-                   <div className="expcompany">
-                    <p>{experiences[0].company}</p>
-                   </div>
-                   <div className="jobyear">
-                    <p>{experiences[0].job}</p>
-                    <p>{experiences[0].start} – {experiences[0].end}</p>
-                   </div>
-                   <div className="jobdesc">
-                   <ul>
-                        {experiences.descriptions
-                            .split(',')
-                            .map((desc, idx) => (
-                                <li key={idx}>{desc.trim()}</li>  
-                            ))}
-                    </ul>
+                    {experiences.map((exp, expIdx) => (
+    <div className="exps" key={expIdx}>
+        <div className="expcompany">
+            <p>{exp.company}</p>
+        </div>
+        <div className="jobyear">
+            <p>{exp.job}</p>
+            <p>{exp.start} – {exp.end}</p>
+        </div>
+        <div className="jobdesc">
+            <ul>
+                {(Array.isArray(exp.descriptions) ? exp.descriptions : (exp.descriptions || '').split(','))
+                    .map((desc, idx) => (
+                        <li key={`${expIdx}-${idx}`}>{desc.trim()}</li>
+                    ))}
+            </ul>
+        </div>
+    </div>
+))}
 
-                   </div>
+                    <div className="projectstitle">
+                        <p className="projectstext">VOLUNTEERING & PROJECTS</p>
+                    </div>
+                    {project.map((pro, proIdx) => (
+                    <div className="pros" key={proIdx}>
+                    <div className="projyear">
+                    <div className="projname">
+                            <p>{pro.title.toUpperCase()}</p>
+                            </div>
+                            <div className="prodesc">
+                            <ul>
+                {(Array.isArray(pro.desc) ? pro.desc : (pro.desc || '').split(','))
+                    .map((desc, idx) => (
+                        <li key={`${proIdx}-${idx}`}>{desc.trim()}</li>
+                    ))}
+            </ul>
+                            </div>
+                        </div>
+                        </div>
+                  ))}
+
+                    <div className="additionaltitle">
+                        <p className="additionaltext">ADDITIONAL</p>
+                    </div>
+                    <div className="addskills">
+                        <p><span>Skills:</span> {skill}</p>
+                        <p><span>Language:</span> {lang}</p>
+                        <p><span>Certifications & Training:</span> {cert}</p>
+                    </div>
 
                 </div>
                 </div>
@@ -195,6 +228,7 @@ const Dialog = () => {
 
                 <div className="btn">
                         <button className="edit" onClick={openModalForEdit}>Edit</button>
+                        <button className="btnprint" onClick={() => window.print()}>Print Resume</button>
                     </div>
                 </>
             )}
